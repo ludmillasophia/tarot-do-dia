@@ -1,0 +1,69 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Conselho do Tarot do Dia</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <main class="app">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">Tarot diário</p>
+        <h1>Conselho do Tarot do Dia</h1>
+      </div>
+      <button id="themeToggle" class="ghost-button" type="button">Modo escuro</button>
+    </header>
+
+    <section class="reading">
+      <article class="tarot-card">
+        <img id="cardImage" class="card-image" src="" alt="Imagem da carta" />
+      </article>
+
+      <article class="message-panel">
+        <p id="readingType" class="reading-type">Carta do dia</p>
+        <h2 id="cardTitle">A Estrela</h2>
+        <p id="cardMeaning" class="meaning"></p>
+
+        <div class="advice-box">
+          <span>Conselho</span>
+          <p id="cardAdvice"></p>
+        </div>
+
+        <div class="reflection-box">
+          <span>Pergunta para hoje</span>
+          <p id="cardReflection"></p>
+        </div>
+
+        <div class="actions">
+          <button id="dailyButton" type="button">Ver carta do dia</button>
+          <button id="freeDrawButton" class="secondary-button" type="button">Sortear livremente</button>
+        </div>
+      </article>
+    </section>
+
+    <section class="deck-section">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">Baralho completo</p>
+          <h2>Todas as cartas</h2>
+        </div>
+
+        <div class="deck-filters">
+          <button class="deck-filter active" type="button" data-filter="todos">Todas</button>
+          <button class="deck-filter" type="button" data-filter="Maior">Maiores</button>
+          <button class="deck-filter" type="button" data-filter="Paus">Paus</button>
+          <button class="deck-filter" type="button" data-filter="Copas">Copas</button>
+          <button class="deck-filter" type="button" data-filter="Espadas">Espadas</button>
+          <button class="deck-filter" type="button" data-filter="Ouros">Ouros</button>
+        </div>
+      </div>
+
+      <div id="deckGrid" class="deck-grid"></div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
