@@ -1,103 +1,183 @@
+const translations = {
+  pt: {
+    title: "Conselho do Tarot do Dia",
+    eyebrow: "Tarot diário",
+    deckEyebrow: "Baralho completo",
+    allCards: "Todas as cartas",
+    adviceLabel: "Conselho",
+    reflectionLabel: "Pergunta para hoje",
+    dailyCard: "Carta do dia",
+    freeDraw: "Sorteio livre",
+    chosenCard: "Carta escolhida",
+    dailyButton: "Ver carta do dia",
+    freeDrawButton: "Sortear livremente",
+    darkMode: "Modo escuro",
+    lightMode: "Modo claro",
+    filterAll: "Todas",
+    filterMajor: "Maiores",
+    filterWands: "Paus",
+    filterCups: "Copas",
+    filterSwords: "Espadas",
+    filterPentacles: "Ouros",
+    majorArcana: "Arcano Maior",
+    minorArcana: "Arcano Menor",
+  },
+  en: {
+    title: "Tarot Advice of the Day",
+    eyebrow: "Daily tarot",
+    deckEyebrow: "Full deck",
+    allCards: "All cards",
+    adviceLabel: "Advice",
+    reflectionLabel: "Question for today",
+    dailyCard: "Card of the day",
+    freeDraw: "Free draw",
+    chosenCard: "Chosen card",
+    dailyButton: "See daily card",
+    freeDrawButton: "Draw freely",
+    darkMode: "Dark mode",
+    lightMode: "Light mode",
+    filterAll: "All",
+    filterMajor: "Major",
+    filterWands: "Wands",
+    filterCups: "Cups",
+    filterSwords: "Swords",
+    filterPentacles: "Pentacles",
+    majorArcana: "Major Arcana",
+    minorArcana: "Minor Arcana",
+  },
+};
+
 const majorArcana = [
-  ["0", "O Louco", "Começos, coragem e abertura para o desconhecido.", "Dê um passo simples antes de tentar prever o caminho inteiro.", "Onde você pode experimentar mais e controlar menos hoje?", "☀"],
-  ["I", "O Mago", "Ação, habilidade e poder de transformar intenção em movimento.", "Use o que você já tem em mãos. A ferramenta principal é sua presença.", "Qual atitude pequena pode transformar sua energia agora?", "✦"],
-  ["II", "A Sacerdotisa", "Intuição, silêncio e sabedoria que amadurece por dentro.", "Antes de responder, escute. Nem toda verdade precisa ser apressada.", "Que resposta você já sabe, mas ainda não quis admitir?", "☾"],
-  ["III", "A Imperatriz", "Criação, cuidado, prazer e crescimento natural.", "Cuide do que você quer ver florescer. Atenção também é alimento.", "O que precisa de mais carinho e menos cobrança?", "✿"],
-  ["IV", "O Imperador", "Estrutura, decisão, limites e responsabilidade.", "Organize uma parte do caos. Um limite bem colocado protege sua energia.", "Onde falta estrutura para sua vontade conseguir agir?", "▲"],
-  ["V", "O Hierofante", "Tradição, aprendizado, orientação e valores compartilhados.", "Busque uma referência confiável, mas preserve sua própria consciência.", "Que ensinamento vale seguir e qual já ficou pequeno?", "◆"],
-  ["VI", "Os Enamorados", "Escolhas, vínculos e alinhamento entre desejo e valor.", "Escolha pelo que conversa com seus valores, não só pelo impulso do momento.", "Que escolha aproxima você da pessoa que quer se tornar?", "♡"],
-  ["VII", "O Carro", "Direção, foco e movimento apesar das tensões.", "Defina o rumo antes de acelerar. Energia sem direção vira cansaço.", "Qual é a prioridade que merece conduzir seu dia?", "⬟"],
-  ["VIII", "A Força", "Coragem calma, autocontrole e gentileza firme.", "Não confunda força com dureza. Hoje, avance com firmeza e doçura.", "Em qual situação você pode ser firme sem se ferir?", "∞"],
-  ["IX", "O Eremita", "Recolhimento, clareza interna e busca por sentido.", "Faça menos barulho ao redor para ouvir melhor o que importa.", "Que distração está impedindo você de se escutar?", "◇"],
-  ["X", "A Roda da Fortuna", "Ciclos, mudança e movimento inevitável da vida.", "Adapte-se ao que mudou. Resistir ao ciclo só aumenta o atrito.", "Que mudança pede mais flexibilidade da sua parte?", "◎"],
-  ["XI", "A Justiça", "Equilíbrio, verdade, escolhas e consequências.", "Seja honesta com os fatos. Clareza também é uma forma de cuidado.", "O que precisa ser visto com mais justiça hoje?", "⚖"],
-  ["XII", "O Enforcado", "Pausa, nova perspectiva e rendição inteligente.", "Mude o ângulo antes de insistir na mesma resposta.", "O que fica diferente quando você para de forçar?", "▽"],
-  ["XIII", "A Morte", "Encerramento, renovação e espaço para o novo.", "Deixe ir uma versão antiga do problema. O fim também abre caminho.", "O que já acabou, mas você ainda tenta carregar?", "✧"],
-  ["XIV", "A Temperança", "Equilíbrio, paciência e mistura cuidadosa de forças.", "Procure a medida certa. Nem tudo precisa ser intenso para ser verdadeiro.", "Onde você pode trocar urgência por constância?", "≋"],
-  ["XV", "O Diabo", "Apego, desejo, padrões repetidos e consciência da própria sombra.", "Veja o que te prende sem se condenar. Nomear o padrão já abre espaço.", "Que hábito pede mais lucidez da sua parte?", "●"],
-  ["XVI", "A Torre", "Ruptura, verdade súbita e libertação de estruturas frágeis.", "Se algo caiu, observe o que essa queda está revelando.", "Que estrutura já não sustentava você de verdade?", "▰"],
-  ["XVII", "A Estrela", "Esperança, cura e confiança no processo.", "Confie mais no seu caminho. Nem tudo precisa estar resolvido hoje.", "Onde você pode agir com mais esperança e menos pressa?", "✦"],
-  ["XVIII", "A Lua", "Sensibilidade, mistério e emoções que pedem cuidado.", "Não tome medo como profecia. Observe antes de concluir.", "Que insegurança precisa de acolhimento, não de comando?", "☽"],
-  ["XIX", "O Sol", "Vitalidade, clareza, alegria e expressão verdadeira.", "Permita-se aparecer. Sua luz não precisa pedir desculpas.", "O que fica mais simples quando você escolhe clareza?", "☼"],
-  ["XX", "O Julgamento", "Chamado interno, despertar e revisão profunda.", "Escute o chamado para mudar de fase. Você não precisa caber no antigo roteiro.", "Que parte sua está pedindo renascimento?", "◌"],
-  ["XXI", "O Mundo", "Conclusão, integração e sensação de ciclo completo.", "Reconheça o quanto você já atravessou antes de correr para o próximo passo.", "Que conquista merece ser celebrada, mesmo que pareça pequena?", "◉"],
+  ["0", "O Louco", "The Fool", "Começos, coragem e abertura para o desconhecido.", "Beginnings, courage, and openness to the unknown.", "Dê um passo simples antes de tentar prever o caminho inteiro.", "Take one simple step before trying to predict the whole path.", "Onde você pode experimentar mais e controlar menos hoje?", "Where can you experiment more and control less today?", "☀"],
+  ["I", "O Mago", "The Magician", "Ação, habilidade e poder de transformar intenção em movimento.", "Action, skill, and the power to turn intention into movement.", "Use o que você já tem em mãos.", "Use what you already have in your hands.", "Qual atitude pequena pode transformar sua energia agora?", "What small action can shift your energy now?", "✦"],
+  ["II", "A Sacerdotisa", "The High Priestess", "Intuição, silêncio e sabedoria interior.", "Intuition, silence, and inner wisdom.", "Antes de responder, escute.", "Listen before you answer.", "Que resposta você já sabe?", "What answer do you already know?", "☾"],
+  ["III", "A Imperatriz", "The Empress", "Criação, cuidado, prazer e crescimento.", "Creation, care, pleasure, and growth.", "Cuide do que você quer ver florescer.", "Nurture what you want to see bloom.", "O que precisa de mais carinho?", "What needs more care?", "✿"],
+  ["IV", "O Imperador", "The Emperor", "Estrutura, decisão, limites e responsabilidade.", "Structure, decision, boundaries, and responsibility.", "Organize uma parte do caos.", "Organize one part of the chaos.", "Onde falta estrutura?", "Where do you need more structure?", "▲"],
+  ["V", "O Hierofante", "The Hierophant", "Tradição, aprendizado e orientação.", "Tradition, learning, and guidance.", "Busque uma referência, mas preserve sua consciência.", "Seek guidance, but keep your own awareness.", "Que ensinamento ainda faz sentido?", "Which teaching still makes sense?", "◆"],
+  ["VI", "Os Enamorados", "The Lovers", "Escolhas, vínculos e alinhamento.", "Choices, bonds, and alignment.", "Escolha pelo que conversa com seus valores.", "Choose what aligns with your values.", "Que escolha aproxima você de si?", "Which choice brings you closer to yourself?", "♡"],
+  ["VII", "O Carro", "The Chariot", "Direção, foco e movimento.", "Direction, focus, and movement.", "Defina o rumo antes de acelerar.", "Choose your direction before speeding up.", "Qual prioridade conduz seu dia?", "Which priority should guide your day?", "⬟"],
+  ["VIII", "A Força", "Strength", "Coragem calma e gentileza firme.", "Calm courage and gentle strength.", "Avance com firmeza e doçura.", "Move forward with firmness and softness.", "Onde você pode ser firme sem se ferir?", "Where can you be firm without hurting yourself?", "∞"],
+  ["IX", "O Eremita", "The Hermit", "Recolhimento, clareza interna e sentido.", "Solitude, inner clarity, and meaning.", "Faça menos barulho ao redor.", "Create less noise around you.", "Que distração impede sua escuta?", "What distraction keeps you from listening?", "◇"],
+  ["X", "A Roda da Fortuna", "Wheel of Fortune", "Ciclos, mudança e movimento da vida.", "Cycles, change, and life in motion.", "Adapte-se ao que mudou.", "Adapt to what has changed.", "Que mudança pede flexibilidade?", "What change asks for flexibility?", "◎"],
+  ["XI", "A Justiça", "Justice", "Equilíbrio, verdade e consequências.", "Balance, truth, and consequences.", "Seja honesta com os fatos.", "Be honest with the facts.", "O que precisa de justiça?", "What needs fairness?", "⚖"],
+  ["XII", "O Enforcado", "The Hanged Man", "Pausa e nova perspectiva.", "Pause and new perspective.", "Mude o ângulo antes de insistir.", "Change the angle before insisting.", "O que muda quando você para de forçar?", "What changes when you stop forcing?", "▽"],
+  ["XIII", "A Morte", "Death", "Encerramento, renovação e espaço para o novo.", "Ending, renewal, and space for the new.", "Deixe ir uma versão antiga do problema.", "Let go of an old version of the problem.", "O que já acabou?", "What has already ended?", "✧"],
+  ["XIV", "A Temperança", "Temperance", "Equilíbrio, paciência e medida.", "Balance, patience, and moderation.", "Procure a medida certa.", "Look for the right measure.", "Onde trocar urgência por constância?", "Where can you trade urgency for consistency?", "≋"],
+  ["XV", "O Diabo", "The Devil", "Apego, desejo e padrões repetidos.", "Attachment, desire, and repeated patterns.", "Veja o que te prende sem se condenar.", "Notice what binds you without judging yourself.", "Que hábito pede lucidez?", "Which habit needs awareness?", "●"],
+  ["XVI", "A Torre", "The Tower", "Ruptura, verdade súbita e libertação.", "Disruption, sudden truth, and liberation.", "Observe o que a queda revela.", "Observe what the fall reveals.", "Que estrutura já não sustentava você?", "Which structure no longer supported you?", "▰"],
+  ["XVII", "A Estrela", "The Star", "Esperança, cura e confiança no processo.", "Hope, healing, and trust in the process.", "Confie mais no seu caminho.", "Trust your path a little more.", "Onde agir com mais esperança?", "Where can you act with more hope?", "✦"],
+  ["XVIII", "A Lua", "The Moon", "Sensibilidade, mistério e emoções.", "Sensitivity, mystery, and emotions.", "Não tome medo como profecia.", "Do not treat fear as prophecy.", "Que insegurança precisa de acolhimento?", "Which insecurity needs care?", "☽"],
+  ["XIX", "O Sol", "The Sun", "Vitalidade, clareza e alegria.", "Vitality, clarity, and joy.", "Permita-se aparecer.", "Allow yourself to be seen.", "O que fica simples com clareza?", "What becomes simpler with clarity?", "☼"],
+  ["XX", "O Julgamento", "Judgement", "Chamado interno, despertar e revisão.", "Inner calling, awakening, and review.", "Escute o chamado para mudar de fase.", "Listen to the call to enter a new phase.", "Que parte sua pede renascimento?", "Which part of you asks for rebirth?", "◌"],
+  ["XXI", "O Mundo", "The World", "Conclusão, integração e ciclo completo.", "Completion, integration, and a full cycle.", "Reconheça o quanto você já atravessou.", "Recognize how much you have already crossed.", "Que conquista merece celebração?", "Which achievement deserves celebration?", "◉"],
 ];
 
 const suits = {
   Paus: {
+    en: "Wands",
     symbol: "♣",
     color: "#9a4f2f",
-    theme: "energia, ação, criatividade e coragem",
-    advice: "Aja com intenção. Sua energia precisa de direção, não de pressa.",
-    question: "Onde sua vontade quer movimento hoje?",
+    ptTheme: "energia, ação, criatividade e coragem",
+    enTheme: "energy, action, creativity, and courage",
+    ptAdvice: "Aja com intenção. Sua energia precisa de direção, não de pressa.",
+    enAdvice: "Act with intention. Your energy needs direction, not hurry.",
+    ptQuestion: "Onde sua vontade quer movimento hoje?",
+    enQuestion: "Where does your will want movement today?",
   },
   Copas: {
+    en: "Cups",
     symbol: "♥",
     color: "#2f7d8c",
-    theme: "emoções, afeto, intuição e relações",
-    advice: "Escute o coração sem abandonar seus limites.",
-    question: "O que suas emoções estão tentando comunicar?",
+    ptTheme: "emoções, afeto, intuição e relações",
+    enTheme: "emotions, affection, intuition, and relationships",
+    ptAdvice: "Escute o coração sem abandonar seus limites.",
+    enAdvice: "Listen to your heart without abandoning your boundaries.",
+    ptQuestion: "O que suas emoções estão tentando comunicar?",
+    enQuestion: "What are your emotions trying to communicate?",
   },
   Espadas: {
+    en: "Swords",
     symbol: "♠",
     color: "#4f638b",
-    theme: "mente, verdade, comunicação e decisões",
-    advice: "Procure clareza antes de reagir. Uma boa pergunta muda tudo.",
-    question: "Que pensamento merece ser revisado com calma?",
+    ptTheme: "mente, verdade, comunicação e decisões",
+    enTheme: "mind, truth, communication, and decisions",
+    ptAdvice: "Procure clareza antes de reagir.",
+    enAdvice: "Seek clarity before reacting.",
+    ptQuestion: "Que pensamento merece ser revisado com calma?",
+    enQuestion: "Which thought deserves to be reviewed calmly?",
   },
   Ouros: {
+    en: "Pentacles",
     symbol: "♦",
     color: "#a77a2d",
-    theme: "corpo, trabalho, dinheiro e construção prática",
-    advice: "Cuide do concreto. Pequenas ações sustentam grandes mudanças.",
-    question: "Que passo prático deixa seu dia mais firme?",
+    ptTheme: "corpo, trabalho, dinheiro e construção prática",
+    enTheme: "body, work, money, and practical building",
+    ptAdvice: "Cuide do concreto. Pequenas ações sustentam grandes mudanças.",
+    enAdvice: "Take care of the practical. Small actions support big changes.",
+    ptQuestion: "Que passo prático deixa seu dia mais firme?",
+    enQuestion: "Which practical step makes your day more grounded?",
   },
 };
 
 const ranks = [
-  ["Ás", "início potente"],
-  ["Dois", "escolha e equilíbrio"],
-  ["Três", "crescimento e colaboração"],
-  ["Quatro", "estrutura e estabilidade"],
-  ["Cinco", "desafio e ajuste"],
-  ["Seis", "harmonia e passagem"],
-  ["Sete", "avaliação e coragem"],
-  ["Oito", "movimento e prática"],
-  ["Nove", "maturidade e intensidade"],
-  ["Dez", "fechamento e resultado"],
-  ["Pajem", "curiosidade e aprendizado"],
-  ["Cavaleiro", "movimento e impulso"],
-  ["Rainha", "domínio interno e cuidado"],
-  ["Rei", "maturidade e liderança"],
+  ["Ás", "Ace", "início potente", "a powerful beginning"],
+  ["Dois", "Two", "escolha e equilíbrio", "choice and balance"],
+  ["Três", "Three", "crescimento e colaboração", "growth and collaboration"],
+  ["Quatro", "Four", "estrutura e estabilidade", "structure and stability"],
+  ["Cinco", "Five", "desafio e ajuste", "challenge and adjustment"],
+  ["Seis", "Six", "harmonia e passagem", "harmony and transition"],
+  ["Sete", "Seven", "avaliação e coragem", "evaluation and courage"],
+  ["Oito", "Eight", "movimento e prática", "movement and practice"],
+  ["Nove", "Nine", "maturidade e intensidade", "maturity and intensity"],
+  ["Dez", "Ten", "fechamento e resultado", "closure and result"],
+  ["Pajem", "Page", "curiosidade e aprendizado", "curiosity and learning"],
+  ["Cavaleiro", "Knight", "movimento e impulso", "movement and impulse"],
+  ["Rainha", "Queen", "domínio interno e cuidado", "inner mastery and care"],
+  ["Rei", "King", "maturidade e liderança", "maturity and leadership"],
 ];
 
 const themeKey = "tarot-tema";
 const dailyKey = "tarot-carta-do-dia";
+const languageKey = "tarot-idioma";
+
+let currentLanguage = loadLanguage();
+let activeDeckFilter = "todos";
 
 const cards = [
-  ...majorArcana.map(([number, name, meaning, advice, reflection, symbol]) => ({
-    id: `maior-${number}`,
+  ...majorArcana.map(([number, ptName, enName, ptMeaning, enMeaning, ptAdvice, enAdvice, ptReflection, enReflection, symbol]) => ({
     arcana: "Maior",
     number,
-    name,
     symbol,
-    meaning,
-    advice,
-    reflection,
     color: "#7a3f71",
+    name: { pt: ptName, en: enName },
+    meaning: { pt: ptMeaning, en: enMeaning },
+    advice: { pt: ptAdvice, en: enAdvice },
+    reflection: { pt: ptReflection, en: enReflection },
   })),
   ...Object.entries(suits).flatMap(([suit, data]) =>
-    ranks.map(([rank, essence], index) => ({
-      id: `${suit}-${rank}`,
+    ranks.map(([ptRank, enRank, ptEssence, enEssence], index) => ({
       arcana: "Menor",
       suit,
+      suitEn: data.en,
       number: String(index + 1),
-      name: `${rank} de ${suit}`,
       symbol: data.symbol,
-      meaning: `${essence.charAt(0).toUpperCase() + essence.slice(1)} no campo de ${data.theme}.`,
-      advice: data.advice,
-      reflection: data.question,
       color: data.color,
+      name: {
+        pt: `${ptRank} de ${suit}`,
+        en: `${enRank} of ${data.en}`,
+      },
+      meaning: {
+        pt: `${capitalize(ptEssence)} no campo de ${data.ptTheme}.`,
+        en: `${capitalize(enEssence)} in the field of ${data.enTheme}.`,
+      },
+      advice: {
+        pt: data.ptAdvice,
+        en: data.enAdvice,
+      },
+      reflection: {
+        pt: data.ptQuestion,
+        en: data.enQuestion,
+      },
     }))
   ),
 ];
@@ -111,10 +191,21 @@ const readingType = document.querySelector("#readingType");
 const dailyButton = document.querySelector("#dailyButton");
 const freeDrawButton = document.querySelector("#freeDrawButton");
 const themeToggle = document.querySelector("#themeToggle");
+const languageSelect = document.querySelector("#languageSelect");
 const deckGrid = document.querySelector("#deckGrid");
 const deckFilters = document.querySelectorAll(".deck-filter");
 
-let activeDeckFilter = "todos";
+function t(key) {
+  return translations[currentLanguage][key];
+}
+
+function value(card, key) {
+  return card[key][currentLanguage];
+}
+
+function capitalize(text) {
+  return text.charAt(0).toUpperCase() + text.slice(1);
+}
 
 function todayKey() {
   return new Date().toISOString().slice(0, 10);
@@ -151,8 +242,8 @@ function randomCard() {
 }
 
 function cardImageSrc(card) {
-  const safeName = escapeXml(card.name);
-  const safeArcana = escapeXml(card.arcana === "Maior" ? "Arcano Maior" : `Arcano Menor • ${card.suit}`);
+  const name = escapeXml(value(card, "name"));
+  const arcana = card.arcana === "Maior" ? t("majorArcana") : `${t("minorArcana")} • ${currentLanguage === "pt" ? card.suit : card.suitEn}`;
   const symbol = escapeXml(card.symbol);
   const color = card.color;
   const smallMarks = card.arcana === "Maior"
@@ -180,8 +271,8 @@ function cardImageSrc(card) {
       <text x="210" y="257" text-anchor="middle" font-family="Georgia, serif" font-size="112" fill="${color}">${symbol}</text>
       <text x="210" y="350" text-anchor="middle" font-family="Georgia, serif" font-size="26" fill="#6e532b">${escapeXml(smallMarks)}</text>
       <line x1="92" y1="420" x2="328" y2="420" stroke="#c8984d" stroke-width="3"/>
-      <text x="210" y="472" text-anchor="middle" font-family="Georgia, serif" font-size="31" font-weight="700" fill="#2a2420">${safeName}</text>
-      <text x="210" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="1.5" fill="${color}">${safeArcana}</text>
+      <text x="210" y="472" text-anchor="middle" font-family="Georgia, serif" font-size="31" font-weight="700" fill="#2a2420">${name}</text>
+      <text x="210" y="520" text-anchor="middle" font-family="Arial, sans-serif" font-size="17" font-weight="700" letter-spacing="1.5" fill="${color}">${escapeXml(arcana)}</text>
     </svg>
   `;
 
@@ -196,14 +287,14 @@ function escapeXml(value) {
     .replaceAll('"', "&quot;");
 }
 
-function renderCard(card, type) {
+function renderCard(card, typeKey) {
   cardImage.src = cardImageSrc(card);
-  cardImage.alt = `Imagem da carta ${card.name}`;
-  cardTitle.textContent = card.name;
-  cardMeaning.textContent = card.meaning;
-  cardAdvice.textContent = card.advice;
-  cardReflection.textContent = card.reflection;
-  readingType.textContent = type;
+  cardImage.alt = `${currentLanguage === "pt" ? "Imagem da carta" : "Image of the card"} ${value(card, "name")}`;
+  cardTitle.textContent = value(card, "name");
+  cardMeaning.textContent = value(card, "meaning");
+  cardAdvice.textContent = value(card, "advice");
+  cardReflection.textContent = value(card, "reflection");
+  readingType.textContent = t(typeKey);
 }
 
 function renderDeck() {
@@ -221,31 +312,58 @@ function renderDeck() {
       button.type = "button";
 
       button.addEventListener("click", () => {
-        renderCard(card, "Carta escolhida");
+        renderCard(card, "chosenCard");
         window.scrollTo({ top: 0, behavior: "smooth" });
       });
 
       const image = document.createElement("img");
       image.src = cardImageSrc(card);
-      image.alt = `Imagem da carta ${card.name}`;
+      image.alt = `${currentLanguage === "pt" ? "Imagem da carta" : "Image of the card"} ${value(card, "name")}`;
 
       const name = document.createElement("strong");
-      name.textContent = card.name;
+      name.textContent = value(card, "name");
 
       const label = document.createElement("span");
       label.textContent = card.arcana === "Maior"
-        ? "Arcano Maior"
-        : `Arcano Menor · ${card.suit}`;
+        ? t("majorArcana")
+        : `${t("minorArcana")} · ${currentLanguage === "pt" ? card.suit : card.suitEn}`;
 
       button.append(image, name, label);
       deckGrid.append(button);
     });
 }
 
+function applyLanguage() {
+  document.documentElement.lang = currentLanguage === "pt" ? "pt-BR" : "en";
+  languageSelect.value = currentLanguage;
+
+  document.querySelectorAll("[data-i18n]").forEach((element) => {
+    element.textContent = t(element.dataset.i18n);
+  });
+
+  dailyButton.textContent = t("dailyButton");
+  freeDrawButton.textContent = t("freeDrawButton");
+  applyTheme(loadTheme());
+}
+
+function loadLanguage() {
+  try {
+    return localStorage.getItem(languageKey) || "pt";
+  } catch {
+    return "pt";
+  }
+}
+
+function saveLanguage(language) {
+  try {
+    localStorage.setItem(languageKey, language);
+  } catch {}
+}
+
 function applyTheme(theme) {
   const isDark = theme === "dark";
   document.body.classList.toggle("dark-theme", isDark);
-  themeToggle.textContent = isDark ? "Modo claro" : "Modo escuro";
+  themeToggle.textContent = isDark ? t("lightMode") : t("darkMode");
 }
 
 function loadTheme() {
@@ -263,17 +381,25 @@ function saveTheme(theme) {
 }
 
 dailyButton.addEventListener("click", () => {
-  renderCard(cardForToday(), "Carta do dia");
+  renderCard(cardForToday(), "dailyCard");
 });
 
 freeDrawButton.addEventListener("click", () => {
-  renderCard(randomCard(), "Sorteio livre");
+  renderCard(randomCard(), "freeDraw");
 });
 
 themeToggle.addEventListener("click", () => {
   const nextTheme = document.body.classList.contains("dark-theme") ? "light" : "dark";
   applyTheme(nextTheme);
   saveTheme(nextTheme);
+});
+
+languageSelect.addEventListener("change", () => {
+  currentLanguage = languageSelect.value;
+  saveLanguage(currentLanguage);
+  applyLanguage();
+  renderCard(cardForToday(), "dailyCard");
+  renderDeck();
 });
 
 deckFilters.forEach((button) => {
@@ -285,6 +411,6 @@ deckFilters.forEach((button) => {
   });
 });
 
-applyTheme(loadTheme());
-renderCard(cardForToday(), "Carta do dia");
-renderDeck();
+applyLanguage();
+renderCard(cardForToday(), "dailyCard");
+renderDeck(); 

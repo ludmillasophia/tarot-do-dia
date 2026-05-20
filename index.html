@@ -10,10 +10,18 @@
   <main class="app">
     <header class="topbar">
       <div>
-        <p class="eyebrow">Tarot diário</p>
-        <h1>Conselho do Tarot do Dia</h1>
+        <p class="eyebrow" data-i18n="eyebrow">Tarot diário</p>
+        <h1 data-i18n="title">Conselho do Tarot do Dia</h1>
       </div>
-      <button id="themeToggle" class="ghost-button" type="button">Modo escuro</button>
+
+      <div class="topbar-actions">
+        <select id="languageSelect" class="language-select" aria-label="Idioma">
+          <option value="pt">Português</option>
+          <option value="en">English</option>
+        </select>
+
+        <button id="themeToggle" class="ghost-button" type="button">Modo escuro</button>
+      </div>
     </header>
 
     <section class="reading">
@@ -27,12 +35,12 @@
         <p id="cardMeaning" class="meaning"></p>
 
         <div class="advice-box">
-          <span>Conselho</span>
+          <span data-i18n="adviceLabel">Conselho</span>
           <p id="cardAdvice"></p>
         </div>
 
         <div class="reflection-box">
-          <span>Pergunta para hoje</span>
+          <span data-i18n="reflectionLabel">Pergunta para hoje</span>
           <p id="cardReflection"></p>
         </div>
 
@@ -46,17 +54,17 @@
     <section class="deck-section">
       <div class="section-heading">
         <div>
-          <p class="eyebrow">Baralho completo</p>
-          <h2>Todas as cartas</h2>
+          <p class="eyebrow" data-i18n="deckEyebrow">Baralho completo</p>
+          <h2 data-i18n="allCards">Todas as cartas</h2>
         </div>
 
         <div class="deck-filters">
-          <button class="deck-filter active" type="button" data-filter="todos">Todas</button>
-          <button class="deck-filter" type="button" data-filter="Maior">Maiores</button>
-          <button class="deck-filter" type="button" data-filter="Paus">Paus</button>
-          <button class="deck-filter" type="button" data-filter="Copas">Copas</button>
-          <button class="deck-filter" type="button" data-filter="Espadas">Espadas</button>
-          <button class="deck-filter" type="button" data-filter="Ouros">Ouros</button>
+          <button class="deck-filter active" type="button" data-filter="todos" data-i18n="filterAll">Todas</button>
+          <button class="deck-filter" type="button" data-filter="Maior" data-i18n="filterMajor">Maiores</button>
+          <button class="deck-filter" type="button" data-filter="Paus" data-i18n="filterWands">Paus</button>
+          <button class="deck-filter" type="button" data-filter="Copas" data-i18n="filterCups">Copas</button>
+          <button class="deck-filter" type="button" data-filter="Espadas" data-i18n="filterSwords">Espadas</button>
+          <button class="deck-filter" type="button" data-filter="Ouros" data-i18n="filterPentacles">Ouros</button>
         </div>
       </div>
 
@@ -66,4 +74,4 @@
 
   <script src="app.js"></script>
 </body>
-</html>
+</html> 
